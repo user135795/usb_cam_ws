@@ -1,0 +1,24 @@
+[0.301s] Invoking command in '/home/cherryad3/usb_camera_ws/src/image_saver': PYTHONPATH=/home/cherryad3/usb_camera_ws/build/image_saver/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/image_saver build --build-base /home/cherryad3/usb_camera_ws/build/image_saver/build install --record /home/cherryad3/usb_camera_ws/build/image_saver/install.log --single-version-externally-managed install_data
+[0.416s] running egg_info
+[0.416s] writing ../../build/image_saver/image_saver.egg-info/PKG-INFO
+[0.417s] writing dependency_links to ../../build/image_saver/image_saver.egg-info/dependency_links.txt
+[0.417s] writing entry points to ../../build/image_saver/image_saver.egg-info/entry_points.txt
+[0.417s] writing requirements to ../../build/image_saver/image_saver.egg-info/requires.txt
+[0.417s] writing top-level names to ../../build/image_saver/image_saver.egg-info/top_level.txt
+[0.418s] reading manifest file '../../build/image_saver/image_saver.egg-info/SOURCES.txt'
+[0.419s] writing manifest file '../../build/image_saver/image_saver.egg-info/SOURCES.txt'
+[0.419s] running build
+[0.419s] running build_py
+[0.419s] copying image_saver/image_save.py -> /home/cherryad3/usb_camera_ws/build/image_saver/build/lib/image_saver
+[0.419s] running install
+[0.419s] running install_lib
+[0.420s] copying /home/cherryad3/usb_camera_ws/build/image_saver/build/lib/image_saver/image_save.py -> /home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages/image_saver
+[0.420s] byte-compiling /home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages/image_saver/image_save.py to image_save.cpython-310.pyc
+[0.421s] running install_data
+[0.421s] running install_egg_info
+[0.422s] removing '/home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages/image_saver-0.0.0-py3.10.egg-info' (and everything under it)
+[0.422s] Copying ../../build/image_saver/image_saver.egg-info to /home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages/image_saver-0.0.0-py3.10.egg-info
+[0.423s] running install_scripts
+[0.435s] Installing subscriber script to /home/cherryad3/usb_camera_ws/install/image_saver/lib/image_saver
+[0.435s] writing list of installed files to '/home/cherryad3/usb_camera_ws/build/image_saver/install.log'
+[0.452s] Invoked command in '/home/cherryad3/usb_camera_ws/src/image_saver' returned '0': PYTHONPATH=/home/cherryad3/usb_camera_ws/build/image_saver/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/image_saver build --build-base /home/cherryad3/usb_camera_ws/build/image_saver/build install --record /home/cherryad3/usb_camera_ws/build/image_saver/install.log --single-version-externally-managed install_data
