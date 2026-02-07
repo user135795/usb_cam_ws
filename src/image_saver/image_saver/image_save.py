@@ -4,6 +4,9 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 import cv2
 
+class constant:
+    BGR_MAX = 255
+
 class Subscriber00(Node):
 
     def __init__(self,name):
@@ -13,6 +16,13 @@ class Subscriber00(Node):
         self.bridge = CvBridge()
         self.save_count = 0
         self.image_subscriber = self.create_subscription(Image,f'/camera1/image_raw',self.image_callback,10)
+
+    def image_pixel_get(self,img,y,x):
+        pixel_value = img[y,x]
+        return pixel_value
+    
+    def image_pixel_alter(self,img,y,x,b,g,r):
+        img[y,x] = [b,r,g]
 
     def image_callback(self,msg):
         self.get_logger().info(f'收到图像消息: 宽度={msg.width}, 高度={msg.height}')
@@ -24,6 +34,14 @@ class Subscriber00(Node):
 
         else:
             self.get_logger().info(f'transformation success!')
+
+            for i in range(0,msg.width):
+                for j in range(0,msg.height):
+                    pixel_value = self.image_pixel_get(cv_image,j,i)
+                    self.image_pixel_alter(cv_image,j,i,(pixel_value[0]+100)%constant.BGR_MAX\
+                                           ,(pixel_value[1]+100)%constant.BGR_MAX,\
+                                            (pixel_value[2]+100)%constant.BGR_MAX)
+
             cv2.imshow(f'USB camera',cv_image)
             key = cv2.waitKey(1) & 0xFF
 
