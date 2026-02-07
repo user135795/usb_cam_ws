@@ -1,0 +1,3 @@
+[console_scripts]
+subscriber = image_saver.image_save:main
+
