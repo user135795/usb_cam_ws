@@ -92,19 +92,26 @@ class Subscriber00(Node):
         hsv_image = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
         return hsv_image
     
+
+    def image_binary_threshold(self,img):
+        gray_image = self.image_gray_convert(img)
+        retval,thresh_binary = cv2.threshold(gray_image,120,255,cv2.THRESH_BINARY)
+        return retval,thresh_binary
+    
     
     def image_callback(self,msg):
-        self.get_logger().info(f'收到图像消息: 宽度={msg.width}, 高度={msg.height}')
+        self.get_logger().info(f'image received: width={msg.width}, height={msg.height}')
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg,'bgr8')
 
         except Exception as e:
-            self.get_logger().error(f'转换ROS图像消息失败: {e}')
+            self.get_logger().error(f'ROS img message transformation failed: {e}')
 
         else:
             self.get_logger().info(f'transformation success!')
 
-            cv2.imshow(f'hsv USB camera',self.image_hsv_convert(cv_image))
+            retval,thresh_binary = self.image_binary_threshold(cv_image)
+            cv2.imshow(f'binary threshold USB camera',thresh_binary)
             #cv2.imshow(f'USB camera',cv_image)
 
             key = cv2.waitKey(1) & 0xFF
@@ -128,7 +135,7 @@ def main(args=None):
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
-        node.get_logger().info(f'用户中断程序')
+        node.get_logger().info(f'user interruption')
     finally:
         cv2.destroyAllWindows()
         node.destroy_node()
