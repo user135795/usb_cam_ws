@@ -8,6 +8,8 @@ import cv2
 class constant:
     BGR_MAX = 255
 
+
+
 class Subscriber00(Node):
 
     def __init__(self,name):
@@ -38,6 +40,7 @@ class Subscriber00(Node):
         return merged_image
     
 
+    #display one color
     def display_color(self,img,b,g,r):
         zeros = np.zeros_like(b)
 
@@ -56,6 +59,7 @@ class Subscriber00(Node):
         cv2.destroyWindow('Red Channel')
 
 
+    #emphasize one color,turning the others into gray
     def display_color_plus(self,img,b,g,r):
         gray_value = (g.astype(np.float32) + r.astype(np.float32)) / 2
         gray_value = gray_value.astype(np.uint8)
@@ -78,6 +82,17 @@ class Subscriber00(Node):
         cv2.waitKey(2000)
         cv2.destroyWindow('Red Channel')
 
+
+    def image_gray_convert(self,img):
+        gray_image = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+        return gray_image
+    
+
+    def image_hsv_convert(self,img):
+        hsv_image = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
+        return hsv_image
+    
+    
     def image_callback(self,msg):
         self.get_logger().info(f'收到图像消息: 宽度={msg.width}, 高度={msg.height}')
         try:
@@ -89,10 +104,8 @@ class Subscriber00(Node):
         else:
             self.get_logger().info(f'transformation success!')
 
-            cv2.imshow(f'USB camera',cv_image)
-
-            splited_image = self.image_split(cv_image)
-            self.display_color_plus(cv_image,splited_image[0],splited_image[1],splited_image[2])
+            cv2.imshow(f'hsv USB camera',self.image_hsv_convert(cv_image))
+            #cv2.imshow(f'USB camera',cv_image)
 
             key = cv2.waitKey(1) & 0xFF
 
@@ -105,6 +118,7 @@ class Subscriber00(Node):
                     cv2.destroyAllWindows()
                 else:
                     self.get_logger().error(f'Failed to save: {filename}')
+
 
 
 def main(args=None):
