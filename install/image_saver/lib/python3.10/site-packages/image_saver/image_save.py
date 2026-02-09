@@ -137,13 +137,14 @@ class Subscriber00(Node):
             area = cv2.contourArea(contour)
             if(area > 300) and (hierarchy is None or hierarchy[pic][3]==-1):
                 x, y, w, h = cv2.boundingRect(contour)
+                self.get_logger().info(f'{target_color} contour{pic}:x:{x},y:{y},w:{w},h:{h}')
                 img = cv2.rectangle(img,(x,y),(x+w,y+h),constant.color_dist[target_color]['value'],2)
                 cv2.putText(img,target_color,(x,y),cv2.FONT_HERSHEY_SIMPLEX,1.0,constant.color_dist[target_color]['value'])
         
         return img
     
     def image_callback(self,msg):
-        self.get_logger().info(f'image received: width={msg.width}, height={msg.height}')
+        #self.get_logger().info(f'image received: width={msg.width}, height={msg.height}')
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg,'bgr8')
 
@@ -151,7 +152,7 @@ class Subscriber00(Node):
             self.get_logger().error(f'ROS img message transformation failed: {e}')
 
         else:
-            self.get_logger().info(f'transformation success!')
+            #self.get_logger().info(f'transformation success!')
             res = self.rgb_detection(cv_image,'green')
             res = self.rgb_detection(res,'blue')
             res = self.rgb_detection(res,'red1')
