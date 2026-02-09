@@ -7,7 +7,28 @@ import cv2
 
 class constant:
     BGR_MAX = 255
-
+    color_dist = {
+        'red1': {
+            'lower': np.array([0, 180, 150], np.uint8),
+            'upper': np.array([8, 255, 255], np.uint8),
+            'value': (0, 0, 255)
+        },
+        'red2': {
+            'lower': np.array([170, 100, 50], np.uint8),
+            'upper': np.array([179, 255, 200], np.uint8),
+            'value': (0, 0, 255)
+        },
+        'blue': {
+            'lower': np.array([100, 100, 80], np.uint8),
+            'upper': np.array([125, 255, 255], np.uint8),
+            'value': (255, 0, 0)
+        },
+        'green': {
+            'lower': np.array([45, 100, 80], np.uint8),
+            'upper': np.array([75, 255, 255], np.uint8),
+            'value': (0, 255, 0)
+        }
+    }
 
 
 class Subscriber00(Node):
@@ -97,7 +118,29 @@ class Subscriber00(Node):
         gray_image = self.image_gray_convert(img)
         retval,thresh_binary = cv2.threshold(gray_image,120,255,cv2.THRESH_BINARY)
         return retval,thresh_binary
-    
+
+
+    def rgb_detection(self,img,target_color):
+        blurred_img = cv2.GaussianBlur(img,(5,5),0)
+        hsv_img = cv2.cvtColor(blurred_img,cv2.COLOR_BGR2HSV)
+        mask = cv2.inRange(hsv_img,constant.color_dist[target_color]['lower'],\
+                          constant.color_dist[target_color]['upper'])
+        
+        kernal = np.ones((5,5),"uint8")
+        mask = cv2.dilate(mask,kernal)
+
+        contours,hierarchy = cv2.findContours(mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
+        if(hierarchy is not None):
+            hierarchy = hierarchy[0]
+
+        for pic, contour in enumerate(contours):
+            area = cv2.contourArea(contour)
+            if(area > 300) and (hierarchy is None or hierarchy[pic][3]==-1):
+                x, y, w, h = cv2.boundingRect(contour)
+                img = cv2.rectangle(img,(x,y),(x+w,y+h),constant.color_dist[target_color]['value'],2)
+                cv2.putText(img,target_color,(x,y),cv2.FONT_HERSHEY_SIMPLEX,1.0,constant.color_dist[target_color]['value'])
+        
+        return img
     
     def image_callback(self,msg):
         self.get_logger().info(f'image received: width={msg.width}, height={msg.height}')
@@ -109,18 +152,18 @@ class Subscriber00(Node):
 
         else:
             self.get_logger().info(f'transformation success!')
-
-            retval,thresh_binary = self.image_binary_threshold(cv_image)
-            cv2.imshow(f'binary threshold USB camera',thresh_binary)
-            #cv2.imshow(f'USB camera',cv_image)
-
+            res = self.rgb_detection(cv_image,'green')
+            res = self.rgb_detection(res,'blue')
+            res = self.rgb_detection(res,'red1')
+            res = self.rgb_detection(res,'red2')
+            cv2.imshow('rgb detection result',res)
             key = cv2.waitKey(1) & 0xFF
 
             if key == ord('s'):
                 self.save_count += 1
                 filename = f'image{self.save_count:04d}.jpg'
 
-                if cv2.imwrite(f'saved_images/{filename}',cv_image):
+                if cv2.imwrite(f'saved_images/{filename}',res):
                     self.get_logger().info(f'{filename} saved successfully!')
                     cv2.destroyAllWindows()
                 else:
