@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             "subscriber = image_saver.image_save:main",
+            "estimator = image_saver.pose_estimation:main",
         ],
     },
 )

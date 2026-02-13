@@ -1,0 +1,27 @@
+[0.313s] Invoking command in '/home/cherryad3/usb_camera_ws/src/image_saver': PYTHONPATH=/home/cherryad3/usb_camera_ws/build/image_saver/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/image_saver build --build-base /home/cherryad3/usb_camera_ws/build/image_saver/build install --record /home/cherryad3/usb_camera_ws/build/image_saver/install.log --single-version-externally-managed install_data
+[0.430s] running egg_info
+[0.430s] writing ../../build/image_saver/image_saver.egg-info/PKG-INFO
+[0.430s] writing dependency_links to ../../build/image_saver/image_saver.egg-info/dependency_links.txt
+[0.430s] writing entry points to ../../build/image_saver/image_saver.egg-info/entry_points.txt
+[0.431s] writing requirements to ../../build/image_saver/image_saver.egg-info/requires.txt
+[0.431s] writing top-level names to ../../build/image_saver/image_saver.egg-info/top_level.txt
+[0.433s] reading manifest file '../../build/image_saver/image_saver.egg-info/SOURCES.txt'
+[0.433s] writing manifest file '../../build/image_saver/image_saver.egg-info/SOURCES.txt'
+[0.433s] running build
+[0.433s] running build_py
+[0.433s] running install
+[0.433s] running install_lib
+[0.434s] byte-compiling /home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages/image_saver/pose_estimation.py to pose_estimation.cpython-310.pyc
+[0.434s]   File "/home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages/image_saver/pose_estimation.py", line 13
+[0.434s]     def load_calibration_params(relative_path='src/image_saver/image_saver/config/ost.yaml')
+[0.434s]                                                                                             ^
+[0.434s] SyntaxError: expected ':'
+[0.434s] 
+[0.434s] running install_data
+[0.434s] running install_egg_info
+[0.436s] removing '/home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages/image_saver-0.0.0-py3.10.egg-info' (and everything under it)
+[0.436s] Copying ../../build/image_saver/image_saver.egg-info to /home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages/image_saver-0.0.0-py3.10.egg-info
+[0.436s] running install_scripts
+[0.449s] Installing subscriber script to /home/cherryad3/usb_camera_ws/install/image_saver/lib/image_saver
+[0.449s] writing list of installed files to '/home/cherryad3/usb_camera_ws/build/image_saver/install.log'
+[0.467s] Invoked command in '/home/cherryad3/usb_camera_ws/src/image_saver' returned '0': PYTHONPATH=/home/cherryad3/usb_camera_ws/build/image_saver/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/image_saver build --build-base /home/cherryad3/usb_camera_ws/build/image_saver/build install --record /home/cherryad3/usb_camera_ws/build/image_saver/install.log --single-version-externally-managed install_data

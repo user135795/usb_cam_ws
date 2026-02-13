@@ -1,0 +1,5 @@
+  File "/home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages/image_saver/pose_estimation.py", line 13
+    def load_calibration_params(relative_path='src/image_saver/image_saver/config/ost.yaml')
+                                                                                            ^
+SyntaxError: expected ':'
+

@@ -4,7 +4,7 @@ from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 import numpy as np
 import cv2
-
+from .rgb_detection import rgb_detector
 class constant:
     BGR_MAX = 255
     color_dist = {
@@ -39,7 +39,8 @@ class Subscriber00(Node):
 
         self.bridge = CvBridge()
         self.save_count = 0
-        self.image_subscriber = self.create_subscription(Image,f'/camera1/image_raw',self.image_callback,10)
+        self.image_subscriber = self.create_subscription(Image,f'/camera1/image_raw',\
+                                                         self.image_callback,10)
 
 
     def image_pixel_get(self,img,y,x):
@@ -119,29 +120,6 @@ class Subscriber00(Node):
         retval,thresh_binary = cv2.threshold(gray_image,120,255,cv2.THRESH_BINARY)
         return retval,thresh_binary
 
-
-    def rgb_detection(self,img,target_color):
-        blurred_img = cv2.GaussianBlur(img,(5,5),0)
-        hsv_img = cv2.cvtColor(blurred_img,cv2.COLOR_BGR2HSV)
-        mask = cv2.inRange(hsv_img,constant.color_dist[target_color]['lower'],\
-                          constant.color_dist[target_color]['upper'])
-        
-        kernal = np.ones((5,5),"uint8")
-        mask = cv2.dilate(mask,kernal)
-
-        contours,hierarchy = cv2.findContours(mask,cv2.RETR_TREE,cv2.CHAIN_APPROX_SIMPLE)
-        if(hierarchy is not None):
-            hierarchy = hierarchy[0]
-
-        for pic, contour in enumerate(contours):
-            area = cv2.contourArea(contour)
-            if(area > 300) and (hierarchy is None or hierarchy[pic][3]==-1):
-                x, y, w, h = cv2.boundingRect(contour)
-                self.get_logger().info(f'{target_color} contour{pic}:x:{x},y:{y},w:{w},h:{h}')
-                img = cv2.rectangle(img,(x,y),(x+w,y+h),constant.color_dist[target_color]['value'],2)
-                cv2.putText(img,target_color,(x,y),cv2.FONT_HERSHEY_SIMPLEX,1.0,constant.color_dist[target_color]['value'])
-        
-        return img
     
     def image_callback(self,msg):
         #self.get_logger().info(f'image received: width={msg.width}, height={msg.height}')
@@ -152,12 +130,13 @@ class Subscriber00(Node):
             self.get_logger().error(f'ROS img message transformation failed: {e}')
 
         else:
-            #self.get_logger().info(f'transformation success!')
-            res = self.rgb_detection(cv_image,'green')
-            res = self.rgb_detection(res,'blue')
-            res = self.rgb_detection(res,'red1')
-            res = self.rgb_detection(res,'red2')
-            cv2.imshow('rgb detection result',res)
+            #write your functions here
+
+
+
+
+
+            
             key = cv2.waitKey(1) & 0xFF
 
             if key == ord('s'):

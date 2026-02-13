@@ -1,0 +1,4 @@
+/home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages/image_saver/pose_estimation.py:15: SyntaxWarning: str indices must be integers or slices, not str; perhaps you missed a comma?
+  mtx = np.array(ost['camera_matrix'['data']],dtype=np.float32).reshape(3,3)
+/home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages/image_saver/pose_estimation.py:16: SyntaxWarning: str indices must be integers or slices, not str; perhaps you missed a comma?
+  dist = np.array(ost['distortion_coefficients'['data']],dtype=np.float32)

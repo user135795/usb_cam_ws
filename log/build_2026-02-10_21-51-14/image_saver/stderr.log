@@ -1,0 +1,5 @@
+  File "/home/cherryad3/usb_camera_ws/install/image_saver/lib/python3.10/site-packages/image_saver/pose_estimation.py", line 5
+    ffrom .rgb_detection import rgb_detector
+                         ^^^^^^
+SyntaxError: invalid syntax
+

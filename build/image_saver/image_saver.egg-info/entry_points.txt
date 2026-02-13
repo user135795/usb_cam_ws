@@ -1,3 +1,4 @@
 [console_scripts]
+estimator = image_saver.pose_estimation:main
 subscriber = image_saver.image_save:main
 

@@ -10,6 +10,8 @@ setup.py
 ../../build/image_saver/image_saver.egg-info/zip-safe
 image_saver/__init__.py
 image_saver/image_save.py
+image_saver/pose_estimation.py
+image_saver/rgb_detection.py
 resource/image_saver
 test/test_copyright.py
 test/test_flake8.py
