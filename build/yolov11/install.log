@@ -1,6 +1,8 @@
 /home/cherryad3/usb_camera_ws/install/yolov11/lib/python3.10/site-packages/yolov11/pre_yolo11_detect.py
+/home/cherryad3/usb_camera_ws/install/yolov11/lib/python3.10/site-packages/yolov11/yolo11_detect.py
 /home/cherryad3/usb_camera_ws/install/yolov11/lib/python3.10/site-packages/yolov11/__init__.py
 /home/cherryad3/usb_camera_ws/install/yolov11/lib/python3.10/site-packages/yolov11/__pycache__/pre_yolo11_detect.cpython-310.pyc
+/home/cherryad3/usb_camera_ws/install/yolov11/lib/python3.10/site-packages/yolov11/__pycache__/yolo11_detect.cpython-310.pyc
 /home/cherryad3/usb_camera_ws/install/yolov11/lib/python3.10/site-packages/yolov11/__pycache__/__init__.cpython-310.pyc
 /home/cherryad3/usb_camera_ws/install/yolov11/share/ament_index/resource_index/packages/yolov11
 /home/cherryad3/usb_camera_ws/install/yolov11/share/yolov11/package.xml
@@ -12,3 +14,4 @@
 /home/cherryad3/usb_camera_ws/install/yolov11/lib/python3.10/site-packages/yolov11-0.0.0-py3.10.egg-info/dependency_links.txt
 /home/cherryad3/usb_camera_ws/install/yolov11/lib/python3.10/site-packages/yolov11-0.0.0-py3.10.egg-info/requires.txt
 /home/cherryad3/usb_camera_ws/install/yolov11/lib/yolov11/detector1
+/home/cherryad3/usb_camera_ws/install/yolov11/lib/yolov11/detector2

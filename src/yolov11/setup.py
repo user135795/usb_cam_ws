@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             "detector1 = yolov11.pre_yolo11_detect:main",
+            "detector2 = yolov11.yolo11_detect:main",
         ],
     },
 )

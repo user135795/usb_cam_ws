@@ -14,3 +14,4 @@ test/test_flake8.py
 test/test_pep257.py
 yolov11/__init__.py
 yolov11/pre_yolo11_detect.py
+yolov11/yolo11_detect.py
