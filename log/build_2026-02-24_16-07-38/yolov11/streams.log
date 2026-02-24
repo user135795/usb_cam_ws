@@ -1,0 +1,24 @@
+[0.317s] Invoking command in '/home/cherryad3/usb_camera_ws/src/yolov11': PYTHONPATH=/home/cherryad3/usb_camera_ws/build/yolov11/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cherryad3/usb_camera_ws/install/yolov11/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/yolov11 build --build-base /home/cherryad3/usb_camera_ws/build/yolov11/build install --record /home/cherryad3/usb_camera_ws/build/yolov11/install.log --single-version-externally-managed install_data
+[0.436s] running egg_info
+[0.436s] writing ../../build/yolov11/yolov11.egg-info/PKG-INFO
+[0.436s] writing dependency_links to ../../build/yolov11/yolov11.egg-info/dependency_links.txt
+[0.436s] writing entry points to ../../build/yolov11/yolov11.egg-info/entry_points.txt
+[0.436s] writing requirements to ../../build/yolov11/yolov11.egg-info/requires.txt
+[0.436s] writing top-level names to ../../build/yolov11/yolov11.egg-info/top_level.txt
+[0.438s] reading manifest file '../../build/yolov11/yolov11.egg-info/SOURCES.txt'
+[0.439s] writing manifest file '../../build/yolov11/yolov11.egg-info/SOURCES.txt'
+[0.439s] running build
+[0.439s] running build_py
+[0.439s] copying yolov11/pre_yolo11_detect.py -> /home/cherryad3/usb_camera_ws/build/yolov11/build/lib/yolov11
+[0.439s] running install
+[0.439s] running install_lib
+[0.440s] copying /home/cherryad3/usb_camera_ws/build/yolov11/build/lib/yolov11/pre_yolo11_detect.py -> /home/cherryad3/usb_camera_ws/install/yolov11/lib/python3.10/site-packages/yolov11
+[0.440s] byte-compiling /home/cherryad3/usb_camera_ws/install/yolov11/lib/python3.10/site-packages/yolov11/pre_yolo11_detect.py to pre_yolo11_detect.cpython-310.pyc
+[0.441s] running install_data
+[0.441s] running install_egg_info
+[0.442s] removing '/home/cherryad3/usb_camera_ws/install/yolov11/lib/python3.10/site-packages/yolov11-0.0.0-py3.10.egg-info' (and everything under it)
+[0.442s] Copying ../../build/yolov11/yolov11.egg-info to /home/cherryad3/usb_camera_ws/install/yolov11/lib/python3.10/site-packages/yolov11-0.0.0-py3.10.egg-info
+[0.442s] running install_scripts
+[0.454s] Installing detector1 script to /home/cherryad3/usb_camera_ws/install/yolov11/lib/yolov11
+[0.454s] writing list of installed files to '/home/cherryad3/usb_camera_ws/build/yolov11/install.log'
+[0.472s] Invoked command in '/home/cherryad3/usb_camera_ws/src/yolov11' returned '0': PYTHONPATH=/home/cherryad3/usb_camera_ws/build/yolov11/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/cherryad3/usb_camera_ws/install/yolov11/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/yolov11 build --build-base /home/cherryad3/usb_camera_ws/build/yolov11/build install --record /home/cherryad3/usb_camera_ws/build/yolov11/install.log --single-version-externally-managed install_data

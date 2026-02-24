@@ -1,0 +1,3 @@
+[console_scripts]
+detector1 = yolov11.pre_yolo11_detect:main
+

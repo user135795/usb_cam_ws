@@ -1,0 +1,16 @@
+package.xml
+setup.cfg
+setup.py
+../../build/yolov11/yolov11.egg-info/PKG-INFO
+../../build/yolov11/yolov11.egg-info/SOURCES.txt
+../../build/yolov11/yolov11.egg-info/dependency_links.txt
+../../build/yolov11/yolov11.egg-info/entry_points.txt
+../../build/yolov11/yolov11.egg-info/requires.txt
+../../build/yolov11/yolov11.egg-info/top_level.txt
+../../build/yolov11/yolov11.egg-info/zip-safe
+resource/yolov11
+test/test_copyright.py
+test/test_flake8.py
+test/test_pep257.py
+yolov11/__init__.py
+yolov11/pre_yolo11_detect.py
